@@ -650,18 +650,28 @@
                 });
             });
 
-            // Store actual target URLs for CloudMoon buttons in dataset
-            let currentRealTargetUrl = "";
+            // Map custom fake mask URLs to their actual intended target destination
+            const cloudmoonRealUrls = {
+                "https://cloudmoon.one/": "https://teachtci.github.io/science/",
+                "https://cloudmoon.two/": "https://teachtci.github.io/biology",
+                "https://cloudmoon.three/": "https://teachtci.github.io/botany",
+                "https://cloudmoon.four/": "https://web.cloudmoonapp.com/",
+                "https://cloudmoon.five/": "https://pc.cloudmoonapp.com",
+                "https://cloudmoon.six/": "https://cloudmoonapp.pages.dev/"
+            };
 
             function triggerEmbedder() {
                 const urlInput = document.getElementById("url-target");
                 if (!urlInput) return;
                 
-                let url = currentRealTargetUrl || urlInput.value.trim();
-                if (!url) { showToast("Error", "URL cannot be empty."); return; }
+                let inputVal = urlInput.value.trim();
+                if (!inputVal) { showToast("Error", "URL cannot be empty."); return; }
+                
+                // If it matches one of our custom fake URLs, open its mapped real destination
+                let targetUrl = cloudmoonRealUrls[inputVal] || inputVal;
                 
                 showToast("Page opened!", "The page has been opened in a new about:blank tab.");
-                if (!url.startsWith("http://") && !url.startsWith("https://")) url = "https://" + url;
+                if (!targetUrl.startsWith("http://") && !targetUrl.startsWith("https://")) targetUrl = "https://" + targetUrl;
                 
                 try {
                     const win = window.open('about:blank');
@@ -670,7 +680,7 @@
                         win.document.body.style.height = "100vh";
                         let frm = win.document.createElement("iframe");
                         frm.style.border = "none"; frm.style.width = "100%"; frm.style.height = "100%";
-                        frm.referrerPolicy = "no-referrer"; frm.allow = "fullscreen"; frm.src = url;
+                        frm.referrerPolicy = "no-referrer"; frm.allow = "fullscreen"; frm.src = targetUrl;
                         win.document.body.appendChild(frm);
                     }
                 } catch (e) {}
@@ -681,47 +691,40 @@
                 createBtn.addEventListener('click', triggerEmbedder);
             }
 
-            // CloudMoon Button Event Listeners with slash-free underscore masking
+            // CloudMoon Button Event Listeners with custom typed animation for cloudmoon.one/.two/.three etc.
             let isTyping = false;
-            function handleCloudMoonButton(targetUrl, buttonName) {
+            function handleCloudMoonButton(fakeUrl, buttonName) {
                 if (isTyping) return;
                 const urlInput = document.getElementById("url-target");
                 if (!urlInput) return;
 
-                currentRealTargetUrl = targetUrl; // Save real URL behind the scenes
                 urlInput.value = "";
                 isTyping = true;
                 let charIndex = 0;
 
-                // Completely mask length into slashes-free underscores format (e.g. "https:_____________________")
-                let maskedUrl = "https:" + "_".repeat(targetUrl.length - 6);
-
                 function typeNextChar() {
-                    if (charIndex <= maskedUrl.length) {
-                        urlInput.value = maskedUrl.substring(0, charIndex);
+                    if (charIndex <= fakeUrl.length) {
+                        urlInput.value = fakeUrl.substring(0, charIndex);
                         charIndex++;
                         setTimeout(typeNextChar, 12); 
                     } else {
                         isTyping = false;
-                        showToast(`${buttonName} Loaded`, "Masked link typed into search bar.");
+                        showToast(`${buttonName} Loaded`, "The link was typed into search bar.");
                     }
                 }
 
                 typeNextChar();
             }
 
-            document.getElementById('cloudmoon1-btn').addEventListener('click', () => handleCloudMoonButton("https://teachtci.github.io/science/", "CloudMoon 1"));
-            document.getElementById('cloudmoon2-btn').addEventListener('click', () => handleCloudMoonButton("https://teachtci.github.io/biology", "CloudMoon 2"));
-            document.getElementById('cloudmoon3-btn').addEventListener('click', () => handleCloudMoonButton("https://teachtci.github.io/botany", "CloudMoon 3"));
-            document.getElementById('cloudmoon4-btn').addEventListener('click', () => handleCloudMoonButton("https://web.cloudmoonapp.com/", "CloudMoon 4"));
-            document.getElementById('cloudmoon5-btn').addEventListener('click', () => handleCloudMoonButton("https://pc.cloudmoonapp.com", "CloudMoon 5"));
-            document.getElementById('cloudmoon6-btn').addEventListener('click', () => handleCloudMoonButton("https://cloudmoonapp.pages.dev/", "CloudMoon 6"));
+            document.getElementById('cloudmoon1-btn').addEventListener('click', () => handleCloudMoonButton("https://cloudmoon.one/", "CloudMoon 1"));
+            document.getElementById('cloudmoon2-btn').addEventListener('click', () => handleCloudMoonButton("https://cloudmoon.two/", "CloudMoon 2"));
+            document.getElementById('cloudmoon3-btn').addEventListener('click', () => handleCloudMoonButton("https://cloudmoon.three/", "CloudMoon 3"));
+            document.getElementById('cloudmoon4-btn').addEventListener('click', () => handleCloudMoonButton("https://cloudmoon.four/", "CloudMoon 4"));
+            document.getElementById('cloudmoon5-btn').addEventListener('click', () => handleCloudMoonButton("https://cloudmoon.five/", "CloudMoon 5"));
+            document.getElementById('cloudmoon6-btn').addEventListener('click', () => handleCloudMoonButton("https://cloudmoon.six/", "CloudMoon 6"));
 
             const urlTarget = document.getElementById('url-target');
             if (urlTarget) {
-                urlTarget.addEventListener('input', () => {
-                    currentRealTargetUrl = "";
-                });
                 urlTarget.addEventListener('keydown', (e) => {
                     if (e.key === 'Enter') {
                         e.preventDefault();
@@ -736,7 +739,6 @@
                     const input = document.getElementById("url-target");
                     if (!input || !input.value) { showToast("Error", "Input is already empty."); return; }
                     input.value = "";
-                    currentRealTargetUrl = "";
                     showToast("Input cleared", "The input has been cleared.");
                 });
             }
