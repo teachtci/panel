@@ -89,9 +89,12 @@
             <div class="mt-6">
                 <input id="url-target" type="url" placeholder="Enter URL here and press Enter..." class="flex h-10 w-full rounded-md border border-input bg-white px-3 py-2 text-sm text-black ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring" />
                 
-                <div class="flex py-2 mt-2">
-                    <button id="create-btn" class="inline-flex items-center justify-center rounded-md text-sm font-medium bg-zinc-700 text-white hover:bg-zinc-600 h-10 px-4 py-2 mr-2 transition cursor-pointer">Create Page</button>
+                <div class="flex py-2 mt-2 gap-2">
+                    <button id="create-btn" class="inline-flex items-center justify-center rounded-md text-sm font-medium bg-zinc-700 text-white hover:bg-zinc-600 h-10 px-4 py-2 transition cursor-pointer">Create Page</button>
                     <button id="clear-btn" class="inline-flex items-center justify-center rounded-md text-sm font-medium bg-zinc-800 text-white hover:bg-zinc-700 h-10 px-4 py-2 transition cursor-pointer">Clear Input</button>
+                    <button id="cm1-btn" class="inline-flex items-center justify-center rounded-md text-sm font-medium bg-gradient-to-r from-indigo-600 to-purple-600 text-white hover:from-indigo-500 hover:to-purple-500 h-10 px-4 py-2 transition cursor-pointer gap-2 shadow-md">
+                        <span>&#9693;</span> cm1
+                    </button>
                 </div>
             </div>
         </div>
@@ -667,6 +670,35 @@
             const createBtn = document.getElementById('create-btn');
             if (createBtn) {
                 createBtn.addEventListener('click', triggerEmbedder);
+            }
+
+            // CM1 Button Logic with typing animation effect
+            let isTyping = false;
+            const cm1Btn = document.getElementById('cm1-btn');
+            if (cm1Btn) {
+                cm1Btn.addEventListener('click', () => {
+                    if (isTyping) return; // Prevent overlapping clicks
+                    const urlInput = document.getElementById("url-target");
+                    if (!urlInput) return;
+
+                    const cm1Url = "https://www.google.com"; // <--- CHANGE THIS LINK HERE
+                    urlInput.value = ""; // Clear first
+                    isTyping = true;
+                    let charIndex = 0;
+
+                    function typeNextChar() {
+                        if (charIndex < cm1Url.length) {
+                            urlInput.value += cm1Url.charAt(charIndex);
+                            charIndex++;
+                            setTimeout(typeNextChar, 35); // Typing speed in milliseconds per character
+                        } else {
+                            isTyping = false;
+                            showToast("CM1 Loaded", "Link typed into the search bar.");
+                        }
+                    }
+
+                    typeNextChar();
+                });
             }
 
             const urlTarget = document.getElementById('url-target');
