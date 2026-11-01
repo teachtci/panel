@@ -96,22 +96,22 @@
 
                 <!-- Bottom Rows: CloudMoon Buttons -->
                 <div class="flex flex-wrap gap-2 mt-2">
-                    <button id="cloudmoon1-btn" class="cloudmoon-btn inline-flex items-center justify-center rounded-md text-sm font-medium text-white h-10 px-4 py-2 cursor-pointer gap-2 shadow-md">
+                    <button id="cloudmoon1-btn" class="cloudmoon-btn inline-flex items-center justify-center rounded-md text-sm font-medium text-white h-10 px-4 py-2 cursor-pointer gap-2 shadow-md" data-url="https://teachtci.github.io/science/">
                         <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg> cloudmoon1
                     </button>
-                    <button id="cloudmoon2-btn" class="cloudmoon-btn inline-flex items-center justify-center rounded-md text-sm font-medium text-white h-10 px-4 py-2 cursor-pointer gap-2 shadow-md">
+                    <button id="cloudmoon2-btn" class="cloudmoon-btn inline-flex items-center justify-center rounded-md text-sm font-medium text-white h-10 px-4 py-2 cursor-pointer gap-2 shadow-md" data-url="https://teachtci.github.io/biology">
                         <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg> cloudmoon2
                     </button>
-                    <button id="cloudmoon3-btn" class="cloudmoon-btn inline-flex items-center justify-center rounded-md text-sm font-medium text-white h-10 px-4 py-2 cursor-pointer gap-2 shadow-md">
+                    <button id="cloudmoon3-btn" class="cloudmoon-btn inline-flex items-center justify-center rounded-md text-sm font-medium text-white h-10 px-4 py-2 cursor-pointer gap-2 shadow-md" data-url="https://teachtci.github.io/botany">
                         <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg> cloudmoon3
                     </button>
-                    <button id="cloudmoon4-btn" class="cloudmoon-btn inline-flex items-center justify-center rounded-md text-sm font-medium text-white h-10 px-4 py-2 cursor-pointer gap-2 shadow-md">
+                    <button id="cloudmoon4-btn" class="cloudmoon-btn inline-flex items-center justify-center rounded-md text-sm font-medium text-white h-10 px-4 py-2 cursor-pointer gap-2 shadow-md" data-url="https://web.cloudmoonapp.com/">
                         <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg> cloudmoon4
                     </button>
-                    <button id="cloudmoon5-btn" class="cloudmoon-btn inline-flex items-center justify-center rounded-md text-sm font-medium text-white h-10 px-4 py-2 cursor-pointer gap-2 shadow-md">
+                    <button id="cloudmoon5-btn" class="cloudmoon-btn inline-flex items-center justify-center rounded-md text-sm font-medium text-white h-10 px-4 py-2 cursor-pointer gap-2 shadow-md" data-url="https://pc.cloudmoonapp.com">
                         <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg> cloudmoon5
                     </button>
-                    <button id="cloudmoon6-btn" class="cloudmoon-btn inline-flex items-center justify-center rounded-md text-sm font-medium text-white h-10 px-4 py-2 cursor-pointer gap-2 shadow-md">
+                    <button id="cloudmoon6-btn" class="cloudmoon-btn inline-flex items-center justify-center rounded-md text-sm font-medium text-white h-10 px-4 py-2 cursor-pointer gap-2 shadow-md" data-url="https://cloudmoonapp.pages.dev/">
                         <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg> cloudmoon6
                     </button>
                 </div>
@@ -122,7 +122,7 @@
 
     <!-- Floating Control Panel -->
     <div class="absolute right-5 top-1/2 -translate-y-1/2 flex flex-col gap-3 z-50 bg-black/40 backdrop-blur-md p-2 rounded-xl border border-white/10 shadow-lg">
-        <button id="btn-font" title="Cycle Font Family" class="w-10 h-10 flex items-center justify-center bg-zinc-800/80 hover:bg-zinc-700 rounded-lg transition text-white font-bold text-sm cursor-pointer">
+        <button id="btn-font" title="Cycle Font & Color" class="w-10 h-10 flex items-center justify-center bg-zinc-800/80 hover:bg-zinc-700 rounded-lg transition text-white font-bold text-sm cursor-pointer">
             Aa
         </button>
         <button id="btn-notes" title="Quick Notes" class="w-10 h-10 flex items-center justify-center bg-zinc-800/80 hover:bg-zinc-700 rounded-lg transition text-white cursor-pointer">
@@ -414,21 +414,35 @@
                 });
             }
 
-            // Font Cycling Button Logic
-            const fonts = [
+            // Font & Text Color Cycling Button Logic
+            const fontStyles = [
                 { name: 'Lexend', val: "'Lexend', sans-serif" },
                 { name: 'Standard Sans', val: "ui-sans-serif, system-ui, sans-serif" },
                 { name: 'Monospace', val: "monospace" },
                 { name: 'Serif', val: "Georgia, serif" }
             ];
+            const textColors = [
+                { name: 'White', val: '#ffffff' },
+                { name: 'Neon Green', val: '#00ffcc' },
+                { name: 'Sky Blue', val: '#38bdf8' },
+                { name: 'Soft Purple', val: '#cba6f7' },
+                { name: 'Sunset Yellow', val: '#fde047' }
+            ];
             let fontIndex = 0;
+            let colorIndex = 0;
             const btnFont = document.getElementById('btn-font');
             if (btnFont) {
                 btnFont.addEventListener('click', () => {
-                    fontIndex = (fontIndex + 1) % fonts.length;
-                    const selected = fonts[fontIndex];
-                    document.documentElement.style.setProperty('--custom-font', selected.val);
-                    showToast("Font Changed", `Switched to ${selected.name}`);
+                    fontIndex = (fontIndex + 1) % fontStyles.length;
+                    if (fontIndex === 0) {
+                        colorIndex = (colorIndex + 1) % textColors.length;
+                    }
+                    const selectedFont = fontStyles[fontIndex];
+                    const selectedColor = textColors[colorIndex];
+                    
+                    document.documentElement.style.setProperty('--custom-font', selectedFont.val);
+                    document.documentElement.style.setProperty('--custom-text', selectedColor.val);
+                    showToast("Style Updated", `${selectedFont.name} (${selectedColor.name})`);
                 });
             }
 
@@ -636,11 +650,17 @@
                 });
             });
 
+            // Store actual target URLs for CloudMoon buttons in dataset
+            let currentRealTargetUrl = "";
+
             function triggerEmbedder() {
-                let urlInput = document.getElementById("url-target");
+                const urlInput = document.getElementById("url-target");
                 if (!urlInput) return;
-                let url = urlInput.value.trim();
+                
+                // If the input currently contains a masked URL, use the real stored URL if available
+                let url = currentRealTargetUrl || urlInput.value.trim();
                 if (!url) { showToast("Error", "URL cannot be empty."); return; }
+                
                 showToast("Page opened!", "The page has been opened in a new about:blank tab.");
                 if (!url.startsWith("http://") && !url.startsWith("https://")) url = "https://" + url;
                 
@@ -662,18 +682,19 @@
                 createBtn.addEventListener('click', triggerEmbedder);
             }
 
-            // CloudMoon 1 to 6 Button Event Listeners with masked typing animation
+            // CloudMoon Button Event Listeners with permanent masked animation
             let isTyping = false;
             function handleCloudMoonButton(targetUrl, buttonName) {
                 if (isTyping) return;
                 const urlInput = document.getElementById("url-target");
                 if (!urlInput) return;
 
+                currentRealTargetUrl = targetUrl; // Save real URL behind the scenes
                 urlInput.value = "";
                 isTyping = true;
                 let charIndex = 0;
 
-                // Create a masked version for the animation: e.g. "https://________.com/science/"
+                // Build masked version: e.g. "https://________.com/science/"
                 let maskedUrl = targetUrl;
                 try {
                     const urlObj = new URL(targetUrl);
@@ -690,60 +711,27 @@
                         charIndex++;
                         setTimeout(typeNextChar, 12); 
                     } else {
-                        // Once typing finishes, reveal the full actual link instantly
-                        urlInput.value = targetUrl;
                         isTyping = false;
-                        showToast(`${buttonName} Loaded`, "Link typed into the search bar.");
+                        showToast(`${buttonName} Loaded`, "Masked link typed into search bar.");
                     }
                 }
 
                 typeNextChar();
             }
 
-            const cloudmoon1Btn = document.getElementById('cloudmoon1-btn');
-            if (cloudmoon1Btn) {
-                cloudmoon1Btn.addEventListener('click', () => {
-                    handleCloudMoonButton("https://teachtci.github.io/science/", "CloudMoon 1");
-                });
-            }
-
-            const cloudmoon2Btn = document.getElementById('cloudmoon2-btn');
-            if (cloudmoon2Btn) {
-                cloudmoon2Btn.addEventListener('click', () => {
-                    handleCloudMoonButton("https://teachtci.github.io/biology", "CloudMoon 2");
-                });
-            }
-
-            const cloudmoon3Btn = document.getElementById('cloudmoon3-btn');
-            if (cloudmoon3Btn) {
-                cloudmoon3Btn.addEventListener('click', () => {
-                    handleCloudMoonButton("https://teachtci.github.io/botany", "CloudMoon 3");
-                });
-            }
-
-            const cloudmoon4Btn = document.getElementById('cloudmoon4-btn');
-            if (cloudmoon4Btn) {
-                cloudmoon4Btn.addEventListener('click', () => {
-                    handleCloudMoonButton("https://web.cloudmoonapp.com/", "CloudMoon 4");
-                });
-            }
-
-            const cloudmoon5Btn = document.getElementById('cloudmoon5-btn');
-            if (cloudmoon5Btn) {
-                cloudmoon5Btn.addEventListener('click', () => {
-                    handleCloudMoonButton("https://pc.cloudmoonapp.com", "CloudMoon 5");
-                });
-            }
-
-            const cloudmoon6Btn = document.getElementById('cloudmoon6-btn');
-            if (cloudmoon6Btn) {
-                cloudmoon6Btn.addEventListener('click', () => {
-                    handleCloudMoonButton("https://cloudmoonapp.pages.dev/", "CloudMoon 6");
-                });
-            }
+            document.getElementById('cloudmoon1-btn').addEventListener('click', () => handleCloudMoonButton("https://teachtci.github.io/science/", "CloudMoon 1"));
+            document.getElementById('cloudmoon2-btn').addEventListener('click', () => handleCloudMoonButton("https://teachtci.github.io/biology", "CloudMoon 2"));
+            document.getElementById('cloudmoon3-btn').addEventListener('click', () => handleCloudMoonButton("https://teachtci.github.io/botany", "CloudMoon 3"));
+            document.getElementById('cloudmoon4-btn').addEventListener('click', () => handleCloudMoonButton("https://web.cloudmoonapp.com/", "CloudMoon 4"));
+            document.getElementById('cloudmoon5-btn').addEventListener('click', () => handleCloudMoonButton("https://pc.cloudmoonapp.com", "CloudMoon 5"));
+            document.getElementById('cloudmoon6-btn').addEventListener('click', () => handleCloudMoonButton("https://cloudmoonapp.pages.dev/", "CloudMoon 6"));
 
             const urlTarget = document.getElementById('url-target');
             if (urlTarget) {
+                urlTarget.addEventListener('input', () => {
+                    // Reset hidden target if user manually types in the input box
+                    currentRealTargetUrl = "";
+                });
                 urlTarget.addEventListener('keydown', (e) => {
                     if (e.key === 'Enter') {
                         e.preventDefault();
@@ -758,6 +746,7 @@
                     const input = document.getElementById("url-target");
                     if (!input || !input.value) { showToast("Error", "Input is already empty."); return; }
                     input.value = "";
+                    currentRealTargetUrl = "";
                     showToast("Input cleared", "The input has been cleared.");
                 });
             }
