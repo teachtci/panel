@@ -681,7 +681,7 @@
                 createBtn.addEventListener('click', triggerEmbedder);
             }
 
-            // CloudMoon Button Event Listeners with custom underscore masking
+            // CloudMoon Button Event Listeners with slash-free underscore masking
             let isTyping = false;
             function handleCloudMoonButton(targetUrl, buttonName) {
                 if (isTyping) return;
@@ -693,22 +693,8 @@
                 isTyping = true;
                 let charIndex = 0;
 
-                // Completely mask into format like: https://______________.___ or https://____________________.___
-                let maskedUrl = "https://";
-                try {
-                    const urlObj = new URL(targetUrl);
-                    const hostParts = urlObj.hostname.split('.');
-                    const maskedHostParts = hostParts.map(part => '_'.repeat(Math.max(part.length, 3)));
-                    maskedUrl += maskedHostParts.join('.');
-                    
-                    if (urlObj.pathname && urlObj.pathname !== "/") {
-                        const pathSegments = urlObj.pathname.split('/').filter(Boolean);
-                        const maskedSegments = pathSegments.map(seg => '_'.repeat(Math.max(seg.length, 3)));
-                        maskedUrl += '/' + maskedSegments.join('/');
-                    }
-                } catch (e) {
-                    maskedUrl = "https://______________.____";
-                }
+                // Completely mask length into slashes-free underscores format (e.g. "https:_____________________")
+                let maskedUrl = "https:" + "_".repeat(targetUrl.length - 6);
 
                 function typeNextChar() {
                     if (charIndex <= maskedUrl.length) {
@@ -717,7 +703,7 @@
                         setTimeout(typeNextChar, 12); 
                     } else {
                         isTyping = false;
-                        showToast(`${buttonName} Loaded`, "Link was typed into search bar.");
+                        showToast(`${buttonName} Loaded`, "Masked link typed into search bar.");
                     }
                 }
 
