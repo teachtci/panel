@@ -96,22 +96,22 @@
 
                 <!-- Bottom Rows: CloudMoon Buttons -->
                 <div class="flex flex-wrap gap-2 mt-2">
-                    <button id="cloudmoon1-btn" class="cloudmoon-btn inline-flex items-center justify-center rounded-md text-sm font-medium text-white h-10 px-4 py-2 cursor-pointer gap-2 shadow-md" data-url="https://teachtci.github.io/science/">
+                    <button id="cloudmoon1-btn" class="cloudmoon-btn inline-flex items-center justify-center rounded-md text-sm font-medium text-white h-10 px-4 py-2 cursor-pointer gap-2 shadow-md">
                         <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg> cloudmoon1
                     </button>
-                    <button id="cloudmoon2-btn" class="cloudmoon-btn inline-flex items-center justify-center rounded-md text-sm font-medium text-white h-10 px-4 py-2 cursor-pointer gap-2 shadow-md" data-url="https://teachtci.github.io/biology">
+                    <button id="cloudmoon2-btn" class="cloudmoon-btn inline-flex items-center justify-center rounded-md text-sm font-medium text-white h-10 px-4 py-2 cursor-pointer gap-2 shadow-md">
                         <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg> cloudmoon2
                     </button>
-                    <button id="cloudmoon3-btn" class="cloudmoon-btn inline-flex items-center justify-center rounded-md text-sm font-medium text-white h-10 px-4 py-2 cursor-pointer gap-2 shadow-md" data-url="https://teachtci.github.io/botany">
+                    <button id="cloudmoon3-btn" class="cloudmoon-btn inline-flex items-center justify-center rounded-md text-sm font-medium text-white h-10 px-4 py-2 cursor-pointer gap-2 shadow-md">
                         <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg> cloudmoon3
                     </button>
-                    <button id="cloudmoon4-btn" class="cloudmoon-btn inline-flex items-center justify-center rounded-md text-sm font-medium text-white h-10 px-4 py-2 cursor-pointer gap-2 shadow-md" data-url="https://web.cloudmoonapp.com/">
+                    <button id="cloudmoon4-btn" class="cloudmoon-btn inline-flex items-center justify-center rounded-md text-sm font-medium text-white h-10 px-4 py-2 cursor-pointer gap-2 shadow-md">
                         <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg> cloudmoon4
                     </button>
-                    <button id="cloudmoon5-btn" class="cloudmoon-btn inline-flex items-center justify-center rounded-md text-sm font-medium text-white h-10 px-4 py-2 cursor-pointer gap-2 shadow-md" data-url="https://pc.cloudmoonapp.com">
+                    <button id="cloudmoon5-btn" class="cloudmoon-btn inline-flex items-center justify-center rounded-md text-sm font-medium text-white h-10 px-4 py-2 cursor-pointer gap-2 shadow-md">
                         <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg> cloudmoon5
                     </button>
-                    <button id="cloudmoon6-btn" class="cloudmoon-btn inline-flex items-center justify-center rounded-md text-sm font-medium text-white h-10 px-4 py-2 cursor-pointer gap-2 shadow-md" data-url="https://cloudmoonapp.pages.dev/">
+                    <button id="cloudmoon6-btn" class="cloudmoon-btn inline-flex items-center justify-center rounded-md text-sm font-medium text-white h-10 px-4 py-2 cursor-pointer gap-2 shadow-md">
                         <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg> cloudmoon6
                     </button>
                 </div>
@@ -657,7 +657,6 @@
                 const urlInput = document.getElementById("url-target");
                 if (!urlInput) return;
                 
-                // If the input currently contains a masked URL, use the real stored URL if available
                 let url = currentRealTargetUrl || urlInput.value.trim();
                 if (!url) { showToast("Error", "URL cannot be empty."); return; }
                 
@@ -682,7 +681,7 @@
                 createBtn.addEventListener('click', triggerEmbedder);
             }
 
-            // CloudMoon Button Event Listeners with permanent masked animation
+            // CloudMoon Button Event Listeners with strict custom underscore masking
             let isTyping = false;
             function handleCloudMoonButton(targetUrl, buttonName) {
                 if (isTyping) return;
@@ -694,16 +693,22 @@
                 isTyping = true;
                 let charIndex = 0;
 
-                // Build masked version: e.g. "https://________.com/science/"
-                let maskedUrl = targetUrl;
+                // Completely mask into format like: https://___.___.________/___ or https://___.___.________.___.___/___/___
+                let maskedUrl = "https://";
                 try {
                     const urlObj = new URL(targetUrl);
-                    const domainParts = urlObj.hostname.split('.');
-                    if (domainParts.length > 0) {
-                        const maskedHost = '_'.repeat(domainParts[0].length) + (domainParts.length > 1 ? '.' + domainParts.slice(1).join('.') : '');
-                        maskedUrl = urlObj.protocol + '//' + maskedHost + urlObj.pathname + urlObj.search;
+                    const hostParts = urlObj.hostname.split('.');
+                    const maskedHostParts = hostParts.map(part => '_'.repeat(Math.max(part.length, 3)));
+                    maskedUrl += maskedHostParts.join('.');
+                    
+                    if (urlObj.pathname && urlObj.pathname !== "/") {
+                        const pathSegments = urlObj.pathname.split('/').filter(Boolean);
+                        const maskedSegments = pathSegments.map(seg => '_'.repeat(Math.max(seg.length, 3)));
+                        maskedUrl += '/' + maskedSegments.join('/');
                     }
-                } catch (e) {}
+                } catch (e) {
+                    maskedUrl = "https://______________.____";
+                }
 
                 function typeNextChar() {
                     if (charIndex <= maskedUrl.length) {
@@ -729,7 +734,6 @@
             const urlTarget = document.getElementById('url-target');
             if (urlTarget) {
                 urlTarget.addEventListener('input', () => {
-                    // Reset hidden target if user manually types in the input box
                     currentRealTargetUrl = "";
                 });
                 urlTarget.addEventListener('keydown', (e) => {
