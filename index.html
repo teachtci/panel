@@ -681,7 +681,7 @@
                 createBtn.addEventListener('click', triggerEmbedder);
             }
 
-            // CloudMoon Button Event Listeners with strict custom underscore masking
+            // CloudMoon Button Event Listeners with custom underscore masking
             let isTyping = false;
             function handleCloudMoonButton(targetUrl, buttonName) {
                 if (isTyping) return;
@@ -693,7 +693,7 @@
                 isTyping = true;
                 let charIndex = 0;
 
-                // Completely mask into format like: https://___.___.________/___ or https://___.___.________.___.___/___/___
+                // Completely mask into format like: https://______________.___ or https://____________________.___
                 let maskedUrl = "https://";
                 try {
                     const urlObj = new URL(targetUrl);
@@ -717,7 +717,7 @@
                         setTimeout(typeNextChar, 12); 
                     } else {
                         isTyping = false;
-                        showToast(`${buttonName} Loaded`, "Masked link typed into search bar.");
+                        showToast(`${buttonName} Loaded`, "Link was typed into search bar.");
                     }
                 }
 
