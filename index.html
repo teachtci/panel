@@ -18,7 +18,7 @@
         }
     </style>
     <script>
-        // Automatic about:blank cloaking on any letter key press or mouse click
+        // Automatic about:blank cloaking handler
         (function() {
             try {
                 if (window.location.protocol !== 'about:' && !window.frameElement && !sessionStorage.getItem('is_cloaked')) {
@@ -88,16 +88,16 @@
         <!-- Embedder View (Hidden by default) -->
         <div id="embedder-view" class="hidden flex-grow p-6 rounded-2xl overflow-auto max-w-2xl mx-auto mt-10 w-full z-10 bg-black/80 backdrop-blur-md border border-white/10 shadow-2xl text-white">
             <div class="flex justify-between items-center mb-4">
-                <h1 class="text-3xl font-extrabold tracking-tight">embedder[cite: 1]</h1>
-                <button id="back-to-clock" class="text-xs bg-white/20 hover:bg-white/30 px-3 py-1.5 rounded-lg transition font-bold cursor-pointer">Back to Dashboard[cite: 1]</button>
+                <h1 class="text-3xl font-extrabold tracking-tight">embedder[span_1](start_span)[span_1](end_span)</h1>
+                <button id="back-to-clock" class="text-xs bg-white/20 hover:bg-white/30 px-3 py-1.5 rounded-lg transition font-bold cursor-pointer">Back to Dashboard[span_2](start_span)[span_2](end_span)</button>
             </div>
-            <div class="mt-6[cite: 1]">
-                <input id="url-target" type="url" placeholder="Enter URL here and press Enter..." class="flex h-10 w-full rounded-md border border-input bg-white px-3 py-2 text-sm text-black ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring[cite: 1]" />
+            <div class="mt-6[span_3](start_span)[span_3](end_span)">
+                <input id="url-target" type="url" placeholder="Enter URL here and press Enter..." class="flex h-10 w-full rounded-md border border-input bg-white px-3 py-2 text-sm text-black ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring[span_4](start_span)[span_4](end_span)" />
                 
-                <div class="flex flex-wrap py-2 mt-2 gap-2[cite: 1]">
-                    <button id="create-btn" class="inline-flex items-center justify-center rounded-md text-sm font-medium bg-zinc-700 text-white hover:bg-zinc-600 h-10 px-4 py-2 transition cursor-pointer[cite: 1]">Create Page[cite: 1]</button>
-                    <button id="clear-btn" class="inline-flex items-center justify-center rounded-md text-sm font-medium bg-zinc-800 text-white hover:bg-zinc-700 h-10 px-4 py-2 transition cursor-pointer[cite: 1]">Clear Input[cite: 1]</button>
-                    <button id="cloudmoon1-btn" class="inline-flex items-center justify-center rounded-md text-sm font-medium bg-zinc-800 text-white hover:bg-zinc-700 h-10 px-4 py-2 transition cursor-pointer gap-2[cite: 1]"><span>⏾</span> cloudmoon1[cite: 1]</button>
+                <div class="flex flex-wrap py-2 mt-2 gap-2[span_5](start_span)[span_5](end_span)">
+                    <button id="create-btn" class="inline-flex items-center justify-center rounded-md text-sm font-medium bg-zinc-700 text-white hover:bg-zinc-600 h-10 px-4 py-2 transition cursor-pointer[span_6](start_span)[span_6](end_span)">Create Page[span_7](start_span)[span_7](end_span)</button>
+                    <button id="clear-btn" class="inline-flex items-center justify-center rounded-md text-sm font-medium bg-zinc-800 text-white hover:bg-zinc-700 h-10 px-4 py-2 transition cursor-pointer[span_8](start_span)[span_8](end_span)">Clear Input[span_9](start_span)[span_9](end_span)</button>
+                    <button id="cloudmoon1-btn" class="inline-flex items-center justify-center rounded-md text-sm font-medium bg-zinc-800 text-white hover:bg-zinc-700 h-10 px-4 py-2 transition cursor-pointer gap-2[span_10](start_span)[span_10](end_span)"><span>⏾</span> cloudmoon1[span_11](start_span)[span_11](end_span)</button>
                     <button id="cloudmoon2-btn" class="inline-flex items-center justify-center rounded-md text-sm font-medium bg-zinc-800 text-white hover:bg-zinc-700 h-10 px-4 py-2 transition cursor-pointer gap-2"><span>⏾</span> cloudmoon2</button>
                     <button id="cloudmoon3-btn" class="inline-flex items-center justify-center rounded-md text-sm font-medium bg-zinc-800 text-white hover:bg-zinc-700 h-10 px-4 py-2 transition cursor-pointer gap-2"><span>⏾</span> cloudmoon3</button>
                     <button id="cloudmoon4-btn" class="inline-flex items-center justify-center rounded-md text-sm font-medium bg-zinc-800 text-white hover:bg-zinc-700 h-10 px-4 py-2 transition cursor-pointer gap-2"><span>⏾</span> cloudmoon4</button>
@@ -110,93 +110,93 @@
     </div>
 
     <!-- Floating Control Panel -->
-    <div class="absolute right-5 top-1/2 -translate-y-1/2 flex flex-col gap-3 z-50 bg-black/40 backdrop-blur-md p-2 rounded-xl border border-white/10 shadow-lg[cite: 1]">
-        <button id="btn-font" title="Cycle Font Family" class="w-10 h-10 flex items-center justify-center bg-zinc-800/80 hover:bg-zinc-700 rounded-lg transition text-white font-bold text-sm cursor-pointer[cite: 1]">
-            Aa[cite: 1]
+    <div class="absolute right-5 top-1/2 -translate-y-1/2 flex flex-col gap-3 z-50 bg-black/40 backdrop-blur-md p-2 rounded-xl border border-white/10 shadow-lg[span_12](start_span)[span_12](end_span)">
+        <button id="btn-font" title="Cycle Font Family" class="w-10 h-10 flex items-center justify-center bg-zinc-800/80 hover:bg-zinc-700 rounded-lg transition text-white font-bold text-sm cursor-pointer[span_13](start_span)[span_13](end_span)">
+            Aa[span_14](start_span)[span_14](end_span)
         </button>
-        <button id="btn-notes" title="Quick Notes" class="w-10 h-10 flex items-center justify-center bg-zinc-800/80 hover:bg-zinc-700 rounded-lg transition text-white cursor-pointer[cite: 1]">
+        <button id="btn-notes" title="Quick Notes" class="w-10 h-10 flex items-center justify-center bg-zinc-800/80 hover:bg-zinc-700 rounded-lg transition text-white cursor-pointer[span_15](start_span)[span_15](end_span)">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125"/></svg>
         </button>
-        <button id="btn-heart" title="Favorite" class="w-10 h-10 flex items-center justify-center bg-zinc-800/80 hover:bg-zinc-700 rounded-lg transition text-white cursor-pointer[cite: 1]">
+        <button id="btn-heart" title="Favorite" class="w-10 h-10 flex items-center justify-center bg-zinc-800/80 hover:bg-zinc-700 rounded-lg transition text-white cursor-pointer[span_16](start_span)[span_16](end_span)">
             <svg id="heart-icon" class="w-5 h-5 transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/></svg>
         </button>
-        <button id="btn-fullscreen" title="Toggle Fullscreen" class="w-10 h-10 flex items-center justify-center bg-zinc-800/80 hover:bg-zinc-700 rounded-lg transition text-white cursor-pointer[cite: 1]">
+        <button id="btn-fullscreen" title="Toggle Fullscreen" class="w-10 h-10 flex items-center justify-center bg-zinc-800/80 hover:bg-zinc-700 rounded-lg transition text-white cursor-pointer[span_17](start_span)[span_17](end_span)">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15"/></svg>
         </button>
-        <button id="btn-maximize" title="Compact / Expand View" class="w-10 h-10 flex items-center justify-center bg-zinc-800/80 hover:bg-zinc-700 rounded-lg transition text-white cursor-pointer[cite: 1]">
+        <button id="btn-maximize" title="Compact / Expand View" class="w-10 h-10 flex items-center justify-center bg-zinc-800/80 hover:bg-zinc-700 rounded-lg transition text-white cursor-pointer[span_18](start_span)[span_18](end_span)">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 9V4.5M9 9H4.5M9 9L3.75 3.75M15 15v4.5m0-4.5h4.5m0 4.5l-5.25-5.25"/></svg>
         </button>
-        <button id="btn-themes" title="Customize Themes" class="w-10 h-10 flex items-center justify-center bg-zinc-800/80 hover:bg-zinc-700 rounded-lg transition text-white cursor-pointer[cite: 1]">
+        <button id="btn-themes" title="Customize Themes" class="w-10 h-10 flex items-center justify-center bg-zinc-800/80 hover:bg-zinc-700 rounded-lg transition text-white cursor-pointer[span_19](start_span)[span_19](end_span)">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/></svg>
         </button>
-        <button id="btn-settings" title="Clock Options" class="w-10 h-10 flex items-center justify-center bg-zinc-800/80 hover:bg-zinc-700 rounded-lg transition text-white cursor-pointer[cite: 1]">
+        <button id="btn-settings" title="Clock Options" class="w-10 h-10 flex items-center justify-center bg-zinc-800/80 hover:bg-zinc-700 rounded-lg transition text-white cursor-pointer[span_20](start_span)[span_20](end_span)">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
         </button>
     </div>
 
     <!-- Calendar Modal -->
-    <div id="calendar-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm hidden items-center justify-center z-50[cite: 1]">
-        <div class="bg-zinc-900 border border-zinc-700 p-6 rounded-2xl w-80 shadow-2xl flex flex-col gap-4 text-white[cite: 1]">
-            <div class="flex justify-between items-center border-b border-zinc-800 pb-2[cite: 1]">
-                <h3 id="cal-month-year" class="font-bold text-lg[cite: 1]">Month Year[cite: 1]</h3>
-                <button id="close-calendar-modal" class="text-zinc-400 hover:text-white font-bold text-xl cursor-pointer[cite: 1]">&times;</button>
+    <div id="calendar-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm hidden items-center justify-center z-50[span_21](start_span)[span_21](end_span)">
+        <div class="bg-zinc-900 border border-zinc-700 p-6 rounded-2xl w-80 shadow-2xl flex flex-col gap-4 text-white[span_22](start_span)[span_22](end_span)">
+            <div class="flex justify-between items-center border-b border-zinc-800 pb-2[span_23](start_span)[span_23](end_span)">
+                <h3 id="cal-month-year" class="font-bold text-lg[span_24](start_span)[span_24](end_span)">Month Year[span_25](start_span)[span_25](end_span)</h3>
+                <button id="close-calendar-modal" class="text-zinc-400 hover:text-white font-bold text-xl cursor-pointer[span_26](start_span)[span_26](end_span)">&times;</button>
             </div>
-            <div class="flex justify-between items-center my-1[cite: 1]">
-                <button id="cal-prev" class="bg-zinc-800 hover:bg-zinc-700 px-3 py-1 rounded text-xs font-bold transition cursor-pointer[cite: 1]">&larr; Prev[cite: 1]</button>
-                <button id="cal-today" class="bg-zinc-800 hover:bg-zinc-700 px-3 py-1 rounded text-xs font-bold transition cursor-pointer[cite: 1]">Today[cite: 1]</button>
-                <button id="cal-next" class="bg-zinc-800 hover:bg-zinc-700 px-3 py-1 rounded text-xs font-bold transition cursor-pointer[cite: 1]">Next &rarr;[cite: 1]</button>
+            <div class="flex justify-between items-center my-1[span_27](start_span)[span_27](end_span)">
+                <button id="cal-prev" class="bg-zinc-800 hover:bg-zinc-700 px-3 py-1 rounded text-xs font-bold transition cursor-pointer[span_28](start_span)[span_28](end_span)">&larr; Prev[span_29](start_span)[span_29](end_span)</button>
+                <button id="cal-today" class="bg-zinc-800 hover:bg-zinc-700 px-3 py-1 rounded text-xs font-bold transition cursor-pointer[span_30](start_span)[span_30](end_span)">Today[span_31](start_span)[span_31](end_span)</button>
+                <button id="cal-next" class="bg-zinc-800 hover:bg-zinc-700 px-3 py-1 rounded text-xs font-bold transition cursor-pointer[span_32](start_span)[span_32](end_span)">Next &rarr;[span_33](start_span)[span_33](end_span)</button>
             </div>
-            <div class="grid grid-cols-7 gap-1 text-center text-xs font-semibold text-zinc-400 mb-1[cite: 1]">
-                <span>Sun[cite: 1]</span><span>Mon[cite: 1]</span><span>Tue[cite: 1]</span><span>Wed[cite: 1]</span><span>Thu[cite: 1]</span><span>Fri[cite: 1]</span><span>Sat[cite: 1]</span>
+            <div class="grid grid-cols-7 gap-1 text-center text-xs font-semibold text-zinc-400 mb-1[span_34](start_span)[span_34](end_span)">
+                <span>Sun[span_35](start_span)[span_35](end_span)</span><span>Mon[span_36](start_span)[span_36](end_span)</span><span>Tue[span_37](start_span)[span_37](end_span)</span><span>Wed[span_38](start_span)[span_38](end_span)</span><span>Thu[span_39](start_span)[span_39](end_span)</span><span>Fri[span_40](start_span)[span_40](end_span)</span><span>Sat[span_41](start_span)[span_41](end_span)</span>
             </div>
-            <div id="cal-grid" class="grid grid-cols-7 gap-1 text-center text-sm[cite: 1]">
-                <!-- Days injected via JS[cite: 1] -->
+            <div id="cal-grid" class="grid grid-cols-7 gap-1 text-center text-sm[span_42](start_span)[span_42](end_span)">
+                <!-- Days injected via JS[span_43](start_span)[span_43](end_span) -->
             </div>
         </div>
     </div>
 
     <!-- Notes Modal -->
-    <div id="notes-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm hidden items-center justify-center z-50[cite: 1]">
-        <div class="bg-zinc-900 border border-zinc-700 p-6 rounded-2xl w-80 shadow-2xl flex flex-col gap-4 text-white[cite: 1]">
-            <div class="flex justify-between items-center border-b border-zinc-800 pb-2[cite: 1]">
-                <h3 class="font-bold text-lg[cite: 1]">Quick Notes[cite: 1]</h3>
-                <button id="close-notes-modal" class="text-zinc-400 hover:text-white font-bold text-xl cursor-pointer[cite: 1]">&times;</button>
+    <div id="notes-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm hidden items-center justify-center z-50[span_44](start_span)[span_44](end_span)">
+        <div class="bg-zinc-900 border border-zinc-700 p-6 rounded-2xl w-80 shadow-2xl flex flex-col gap-4 text-white[span_45](start_span)[span_45](end_span)">
+            <div class="flex justify-between items-center border-b border-zinc-800 pb-2[span_46](start_span)[span_46](end_span)">
+                <h3 class="font-bold text-lg[span_47](start_span)[span_47](end_span)">Quick Notes[span_48](start_span)[span_48](end_span)</h3>
+                <button id="close-notes-modal" class="text-zinc-400 hover:text-white font-bold text-xl cursor-pointer[span_49](start_span)[span_49](end_span)">&times;</button>
             </div>
-            <textarea id="quick-notes-area" placeholder="Write down notes or homework reminders here..." class="w-full h-40 bg-zinc-800 border border-zinc-700 rounded-lg p-3 text-sm text-white focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none[cite: 1]"></textarea>
+            <textarea id="quick-notes-area" placeholder="Write down notes or homework reminders here..." class="w-full h-40 bg-zinc-800 border border-zinc-700 rounded-lg p-3 text-sm text-white focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none[span_50](start_span)[span_50](end_span)"></textarea>
         </div>
     </div>
 
     <!-- Themes Modal -->
-    <div id="themes-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm hidden items-center justify-center z-50[cite: 1]">
-        <div class="bg-zinc-900 border border-zinc-700 p-6 rounded-2xl w-80 shadow-2xl flex flex-col gap-4 text-white max-h-[90vh] overflow-y-auto[cite: 1]">
-            <div class="flex justify-between items-center border-b border-zinc-800 pb-2[cite: 1]">
-                <h3 class="font-bold text-lg[cite: 1]">Theme Customizer[cite: 1]</h3>
-                <button id="close-themes-modal" class="text-zinc-400 hover:text-white font-bold text-xl cursor-pointer[cite: 1]">&times;</button>
+    <div id="themes-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm hidden items-center justify-center z-50[span_51](start_span)[span_51](end_span)">
+        <div class="bg-zinc-900 border border-zinc-700 p-6 rounded-2xl w-80 shadow-2xl flex flex-col gap-4 text-white max-h-[90vh] overflow-y-auto[span_52](start_span)[span_52](end_span)">
+            <div class="flex justify-between items-center border-b border-zinc-800 pb-2[span_53](start_span)[span_53](end_span)">
+                <h3 class="font-bold text-lg[span_54](start_span)[span_54](end_span)">Theme Customizer[span_55](start_span)[span_55](end_span)</h3>
+                <button id="close-themes-modal" class="text-zinc-400 hover:text-white font-bold text-xl cursor-pointer[span_56](start_span)[span_56](end_span)">&times;</button>
             </div>
-            <div class="flex flex-col gap-4 text-sm[cite: 1]">
+            <div class="flex flex-col gap-4 text-sm[span_57](start_span)[span_57](end_span)">
                 <div>
-                    <label class="font-semibold text-zinc-400 block mb-2[cite: 1]">Preset Themes[cite: 1]</label>
-                    <div class="grid grid-cols-2 gap-2[cite: 1]">
-                        <button class="preset-btn bg-zinc-800 hover:bg-zinc-700 py-1.5 px-3 rounded text-xs border border-zinc-700 transition cursor-pointer[cite: 1]" data-bg="#09090b" data-text="#ffffff">Clean Dark[cite: 1]</button>
-                        <button class="preset-btn bg-zinc-800 hover:bg-zinc-700 py-1.5 px-3 rounded text-xs border border-zinc-700 transition cursor-pointer[cite: 1]" data-bg="#000000" data-text="#00ffcc">Matrix Green[cite: 1]</button>
-                        <button class="preset-btn bg-zinc-800 hover:bg-zinc-700 py-1.5 px-3 rounded text-xs border border-zinc-700 transition cursor-pointer[cite: 1]" data-bg="#f4f4f5" data-text="#18181b">Light Mode[cite: 1]</button>
-                        <button class="preset-btn bg-zinc-800 hover:bg-zinc-700 py-1.5 px-3 rounded text-xs border border-zinc-700 transition cursor-pointer[cite: 1]" data-bg="#0f172a" data-text="#38bdf8">Midnight Blue[cite: 1]</button>
-                        <button class="preset-btn bg-zinc-800 hover:bg-zinc-700 py-1.5 px-3 rounded text-xs border border-zinc-700 transition cursor-pointer[cite: 1]" data-bg="#181825" data-text="#cba6f7">Purple Dream[cite: 1]</button>
-                        <button class="preset-btn bg-zinc-800 hover:bg-zinc-700 py-1.5 px-3 rounded text-xs border border-zinc-700 transition cursor-pointer[cite: 1]" data-bg="#280d0f" data-text="#fca5a5">Sunset Red[cite: 1]</button>
-                        <button class="preset-btn bg-zinc-800 hover:bg-zinc-700 py-1.5 px-3 rounded text-xs border border-zinc-700 transition cursor-pointer[cite: 1]" data-bg="#1c1917" data-text="#fde047">Solarized Gold[cite: 1]</button>
-                        <button class="preset-btn bg-zinc-800 hover:bg-zinc-700 py-1.5 px-3 rounded text-xs border border-zinc-700 transition cursor-pointer[cite: 1]" data-bg="#064e3b" data-text="#6ee7b7">Emerald Forest[cite: 1]</button>
+                    <label class="font-semibold text-zinc-400 block mb-2[span_58](start_span)[span_58](end_span)">Preset Themes[span_59](start_span)[span_59](end_span)</label>
+                    <div class="grid grid-cols-2 gap-2[span_60](start_span)[span_60](end_span)">
+                        <button class="preset-btn bg-zinc-800 hover:bg-zinc-700 py-1.5 px-3 rounded text-xs border border-zinc-700 transition cursor-pointer[span_61](start_span)[span_61](end_span)" data-bg="#09090b" data-text="#ffffff">Clean Dark[span_62](start_span)[span_62](end_span)</button>
+                        <button class="preset-btn bg-zinc-800 hover:bg-zinc-700 py-1.5 px-3 rounded text-xs border border-zinc-700 transition cursor-pointer[span_63](start_span)[span_63](end_span)" data-bg="#000000" data-text="#00ffcc">Matrix Green[span_64](start_span)[span_64](end_span)</button>
+                        <button class="preset-btn bg-zinc-800 hover:bg-zinc-700 py-1.5 px-3 rounded text-xs border border-zinc-700 transition cursor-pointer[span_65](start_span)[span_65](end_span)" data-bg="#f4f4f5" data-text="#18181b">Light Mode[span_66](start_span)[span_66](end_span)</button>
+                        <button class="preset-btn bg-zinc-800 hover:bg-zinc-700 py-1.5 px-3 rounded text-xs border border-zinc-700 transition cursor-pointer[span_67](start_span)[span_67](end_span)" data-bg="#0f172a" data-text="#38bdf8">Midnight Blue[span_68](start_span)[span_68](end_span)</button>
+                        <button class="preset-btn bg-zinc-800 hover:bg-zinc-700 py-1.5 px-3 rounded text-xs border border-zinc-700 transition cursor-pointer[span_69](start_span)[span_69](end_span)" data-bg="#181825" data-text="#cba6f7">Purple Dream[span_70](start_span)[span_70](end_span)</button>
+                        <button class="preset-btn bg-zinc-800 hover:bg-zinc-700 py-1.5 px-3 rounded text-xs border border-zinc-700 transition cursor-pointer[span_71](start_span)[span_71](end_span)" data-bg="#280d0f" data-text="#fca5a5">Sunset Red[span_72](start_span)[span_72](end_span)</button>
+                        <button class="preset-btn bg-zinc-800 hover:bg-zinc-700 py-1.5 px-3 rounded text-xs border border-zinc-700 transition cursor-pointer[span_73](start_span)[span_73](end_span)" data-bg="#1c1917" data-text="#fde047">Solarized Gold[span_74](start_span)[span_74](end_span)</button>
+                        <button class="preset-btn bg-zinc-800 hover:bg-zinc-700 py-1.5 px-3 rounded text-xs border border-zinc-700 transition cursor-pointer[span_75](start_span)[span_75](end_span)" data-bg="#064e3b" data-text="#6ee7b7">Emerald Forest[span_76](start_span)[span_76](end_span)</button>
                     </div>
                 </div>
-                <hr class="border-zinc-800[cite: 1]">
-                <div class="flex flex-col gap-2[cite: 1]">
-                    <label class="font-semibold text-zinc-400[cite: 1]">Custom Colors[cite: 1]</label>
-                    <div class="flex justify-between items-center[cite: 1]">
-                        <span>Background Color:[cite: 1]</span>
-                        <input type="color" id="picker-bg" value="#09090b" class="w-10 h-8 rounded bg-transparent cursor-pointer[cite: 1]">
+                <hr class="border-zinc-800[span_77](start_span)[span_77](end_span)">
+                <div class="flex flex-col gap-2[span_78](start_span)[span_78](end_span)">
+                    <label class="font-semibold text-zinc-400[span_79](start_span)[span_79](end_span)">Custom Colors[span_80](start_span)[span_80](end_span)</label>
+                    <div class="flex justify-between items-center[span_81](start_span)[span_81](end_span)">
+                        <span>Background Color:[span_82](start_span)[span_82](end_span)</span>
+                        <input type="color" id="picker-bg" value="#09090b" class="w-10 h-8 rounded bg-transparent cursor-pointer[span_83](start_span)[span_83](end_span)">
                     </div>
-                    <div class="flex justify-between items-center[cite: 1]">
-                        <span>Text Color:[cite: 1]</span>
-                        <input type="color" id="picker-text" value="#ffffff" class="w-10 h-8 rounded bg-transparent cursor-pointer[cite: 1]">
+                    <div class="flex justify-between items-center[span_84](start_span)[span_84](end_span)">
+                        <span>Text Color:[span_85](start_span)[span_85](end_span)</span>
+                        <input type="color" id="picker-text" value="#ffffff" class="w-10 h-8 rounded bg-transparent cursor-pointer[span_86](start_span)[span_86](end_span)">
                     </div>
                 </div>
             </div>
@@ -204,26 +204,26 @@
     </div>
 
     <!-- Clock Options Modal -->
-    <div id="settings-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm hidden items-center justify-center z-50[cite: 1]">
-        <div class="bg-zinc-900 border border-zinc-700 p-6 rounded-2xl w-80 shadow-2xl flex flex-col gap-4 text-white[cite: 1]">
-            <div class="flex justify-between items-center border-b border-zinc-800 pb-2[cite: 1]">
-                <h3 class="font-bold text-lg[cite: 1]">Clock Options[cite: 1]</h3>
-                <button id="close-settings-modal" class="text-zinc-400 hover:text-white font-bold text-xl cursor-pointer[cite: 1]">&times;</button>
+    <div id="settings-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm hidden items-center justify-center z-50[span_87](start_span)[span_87](end_span)">
+        <div class="bg-zinc-900 border border-zinc-700 p-6 rounded-2xl w-80 shadow-2xl flex flex-col gap-4 text-white[span_88](start_span)[span_88](end_span)">
+            <div class="flex justify-between items-center border-b border-zinc-800 pb-2[span_89](start_span)[span_89](end_span)">
+                <h3 class="font-bold text-lg[span_90](start_span)[span_90](end_span)">Clock Options[span_91](start_span)[span_91](end_span)</h3>
+                <button id="close-settings-modal" class="text-zinc-400 hover:text-white font-bold text-xl cursor-pointer[span_92](start_span)[span_92](end_span)">&times;</button>
             </div>
-            <div class="flex flex-col gap-3 text-sm[cite: 1]">
-                <label class="flex items-center gap-2 cursor-pointer mt-1[cite: 1]"><input type="checkbox" id="opt-12hr" checked class="rounded bg-zinc-800 border-zinc-700[cite: 1]"> 12-Hour Format[cite: 1]</label>
-                <label class="flex items-center gap-2 cursor-pointer[cite: 1]"><input type="checkbox" id="opt-ampm" checked class="rounded bg-zinc-800 border-zinc-700[cite: 1]"> Show AM/PM[cite: 1]</label>
-                <label class="flex items-center gap-2 cursor-pointer[cite: 1]"><input type="checkbox" id="opt-seconds" checked class="rounded bg-zinc-800 border-zinc-700[cite: 1]"> Show Seconds[cite: 1]</label>
-                <label class="flex items-center gap-2 cursor-pointer[cite: 1]"><input type="checkbox" id="opt-date" checked class="rounded bg-zinc-800 border-zinc-700[cite: 1]"> Show Date[cite: 1]</label>
+            <div class="flex flex-col gap-3 text-sm[span_93](start_span)[span_93](end_span)">
+                <label class="flex items-center gap-2 cursor-pointer mt-1[span_94](start_span)[span_94](end_span)"><input type="checkbox" id="opt-12hr" checked class="rounded bg-zinc-800 border-zinc-700[span_95](start_span)[span_95](end_span)"> 12-Hour Format[span_96](start_span)[span_96](end_span)</label>
+                <label class="flex items-center gap-2 cursor-pointer[span_97](start_span)[span_97](end_span)"><input type="checkbox" id="opt-ampm" checked class="rounded bg-zinc-800 border-zinc-700[span_98](start_span)[span_98](end_span)"> Show AM/PM[span_99](start_span)[span_99](end_span)</label>
+                <label class="flex items-center gap-2 cursor-pointer[span_100](start_span)[span_100](end_span)"><input type="checkbox" id="opt-seconds" checked class="rounded bg-zinc-800 border-zinc-700[span_101](start_span)[span_101](end_span)"> Show Seconds[span_102](start_span)[span_102](end_span)</label>
+                <label class="flex items-center gap-2 cursor-pointer[span_103](start_span)[span_103](end_span)"><input type="checkbox" id="opt-date" checked class="rounded bg-zinc-800 border-zinc-700[span_104](start_span)[span_104](end_span)"> Show Date[span_105](start_span)[span_105](end_span)</label>
             </div>
         </div>
     </div>
 
     <!-- Toast Notification Container -->
-    <div id="toast-container" class="fixed bottom-5 right-5 flex flex-col gap-2 z-50[cite: 1]"></div>
+    <div id="toast-container" class="fixed bottom-5 right-5 flex flex-col gap-2 z-50[span_106](start_span)[span_106](end_span)"></div>
 
     <script>
-        // Escape key fast triple press panic redirect listener[cite: 1]
+        // Escape key fast triple press panic redirect listener[span_107](start_span)[span_107](end_span)
         let escapePressCount = 0;
         let escapeTimer = null;
         window.addEventListener('keydown', (e) => {
@@ -244,7 +244,7 @@
             const container = document.getElementById('toast-container');
             if (!container) return;
             const toast = document.createElement('div');
-            toast.className = "bg-white text-black px-4 py-3 rounded-md shadow-lg border border-gray-200 transition-all duration-300 transform translate-y-2 opacity-0 flex flex-col[cite: 1]";
+            toast.className = "bg-white text-black px-4 py-3 rounded-md shadow-lg border border-gray-200 transition-all duration-300 transform translate-y-2 opacity-0 flex flex-col[span_108](start_span)[span_108](end_span)";
             toast.innerHTML = `<span class="font-bold text-sm">${title}</span><span class="text-xs text-gray-600">${description}</span>`;
             container.appendChild(toast);
             setTimeout(() => toast.classList.remove('translate-y-2', 'opacity-0'), 10);
@@ -254,24 +254,19 @@
             }, 3000);
         }
 
-        // Direct, bulletproof live clock loop
-        function startLiveClock() {
-            const timeMainEl = document.getElementById('time-main');
-            const timeAmpmEl = document.getElementById('am-pm-trigger');
-            const timeSecondsEl = document.getElementById('time-seconds');
-            const dateDisplayEl = document.getElementById('date-display');
-            
-            const opt12hr = document.getElementById('opt-12hr');
-            const optAmpm = document.getElementById('opt-ampm');
-            const optSeconds = document.getElementById('opt-seconds');
-
-            function tick() {
+        // Bulletproof standalone clock runner that executes immediately and guarantees live updates
+        function initClock() {
+            function updateClock() {
                 try {
                     const now = new Date();
                     let h = now.getHours();
                     let m = now.getMinutes();
                     let s = now.getSeconds();
                     let period = "";
+
+                    const opt12hr = document.getElementById('opt-12hr');
+                    const optAmpm = document.getElementById('opt-ampm');
+                    const optSeconds = document.getElementById('opt-seconds');
 
                     const use12 = opt12hr ? opt12hr.checked : true;
 
@@ -284,6 +279,11 @@
                     const hh = String(h).padStart(2, '0');
                     const mm = String(m).padStart(2, '0');
                     const ss = String(s).padStart(2, '0');
+
+                    const timeMainEl = document.getElementById('time-main');
+                    const timeAmpmEl = document.getElementById('am-pm-trigger');
+                    const timeSecondsEl = document.getElementById('time-seconds');
+                    const dateDisplayEl = document.getElementById('date-display');
 
                     if (timeMainEl) timeMainEl.textContent = `${hh}:${mm}`;
                     if (timeAmpmEl) {
@@ -299,21 +299,22 @@
                         const options = { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' };
                         dateDisplayEl.textContent = now.toLocaleDateString('en-US', options);
                     }
-                } catch (err) {}
+                } catch (e) {}
             }
 
-            tick();
-            setInterval(tick, 1000);
+            updateClock();
+            setInterval(updateClock, 1000);
         }
 
+        // Run immediately and also on DOM load to ensure execution
         if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', startLiveClock);
+            document.addEventListener('DOMContentLoaded', initClock);
         } else {
-            startLiveClock();
+            initClock();
         }
 
         window.addEventListener('DOMContentLoaded', () => {
-            // Interactive Calendar Modal Logic[cite: 1]
+            // Interactive Calendar Modal Logic[span_109](start_span)[span_109](end_span)
             let calYear = new Date().getFullYear();
             let calMonth = new Date().getMonth();
 
@@ -344,7 +345,7 @@
                 for (let day = 1; day <= daysInMonth; day++) {
                     const dayCell = document.createElement('div');
                     dayCell.textContent = day;
-                    dayCell.className = "py-1.5 rounded-lg text-sm transition font-medium flex items-center justify-center[cite: 1]";
+                    dayCell.className = "py-1.5 rounded-lg text-sm transition font-medium flex items-center justify-center[span_110](start_span)[span_110](end_span)";
 
                     const isToday = (day === today.getDate() && month === today.getMonth() && year === today.getFullYear());
                     if (isToday) {
@@ -403,7 +404,7 @@
                 });
             }
 
-            // Font Cycling Button Logic[cite: 1]
+            // Font Cycling Button Logic[span_111](start_span)[span_111](end_span)
             const fonts = [
                 { name: 'Lexend', val: "'Lexend', sans-serif" },
                 { name: 'Standard Sans', val: "ui-sans-serif, system-ui, sans-serif" },
@@ -421,7 +422,7 @@
                 });
             }
 
-            // Stopwatch Logic[cite: 1]
+            // Stopwatch Logic[span_112](start_span)[span_112](end_span)
             let swInterval = null;
             let swSeconds = 0;
             let swRunning = false;
@@ -493,7 +494,7 @@
                 });
             }
 
-            // Quick Notes Auto-save Logic[cite: 1]
+            // Quick Notes Auto-save Logic[span_113](start_span)[span_113](end_span)
             const notesModal = document.getElementById('notes-modal');
             const quickNotesArea = document.getElementById('quick-notes-area');
             
@@ -547,11 +548,11 @@
                     if (isHeartRed) {
                         icon.setAttribute('fill', 'currentColor');
                         icon.classList.add('text-red-500');
-                        showToast("Favorited", "Added to favorites![cite: 1]");
+                        showToast("Favorited", "Added to favorites[span_114](start_span)[span_114](end_span)!");
                     } else {
                         icon.setAttribute('fill', 'none');
                         icon.classList.remove('text-red-500');
-                        showToast("Removed", "Removed from favorites.[cite: 1]");
+                        showToast("Removed", "Removed from favorites.[span_115](start_span)[span_115](end_span)");
                     }
                 });
             }
@@ -576,11 +577,11 @@
                     if (isCompact) {
                         mainTimeElement.classList.replace('text-7xl', 'text-4xl');
                         mainTimeElement.classList.replace('md:text-9xl', 'md:text-6xl');
-                        showToast("Minimized", "Compact view enabled.[cite: 1]");
+                        showToast("Minimized", "Compact view enabled.[span_116](start_span)[span_116](end_span)");
                     } else {
                         mainTimeElement.classList.replace('text-4xl', 'text-7xl');
                         mainTimeElement.classList.replace('md:text-6xl', 'md:text-9xl');
-                        showToast("Maximize", "Normal view restored.[cite: 1]");
+                        showToast("Maximize", "Normal view restored.[span_117](start_span)[span_117](end_span)");
                     }
                 });
             }
@@ -629,8 +630,8 @@
                 let urlInput = document.getElementById("url-target");
                 if (!urlInput) return;
                 let url = urlInput.value.trim();
-                if (!url) { showToast("Error", "URL cannot be empty.[cite: 1]"); return; }
-                showToast("Page opened!", "The page has been opened in a new about:blank tab.[cite: 1]");
+                if (!url) { showToast("Error", "URL cannot be empty.[span_118](start_span)[span_118](end_span)"); return; }
+                showToast("Page opened!", "The page has been opened in a new about:blank tab.[span_119](start_span)[span_119](end_span)");
                 if (!url.startsWith("http://") && !url.startsWith("https://")) url = "https://" + url;
                 
                 try {
@@ -651,7 +652,7 @@
                 createBtn.addEventListener('click', triggerEmbedder);
             }
 
-            // CloudMoon 1 to 6 Button Event Listeners with typing animation[cite: 1]
+            // CloudMoon 1 to 6 Button Event Listeners with typing animation[span_120](start_span)[span_120](end_span)
             let isTyping = false;
             function handleCloudMoonButton(targetUrl, buttonName) {
                 if (isTyping) return;
@@ -669,7 +670,7 @@
                     } else {
                         urlInput.value = targetUrl;
                         isTyping = false;
-                        showToast(`${buttonName} Loaded`, "Link typed into the search bar.[cite: 1]");
+                        showToast(`${buttonName} Loaded`, "Link typed into the search bar.[span_121](start_span)[span_121](end_span)");
                     }
                 }
 
@@ -679,42 +680,42 @@
             const cloudmoon1Btn = document.getElementById('cloudmoon1-btn');
             if (cloudmoon1Btn) {
                 cloudmoon1Btn.addEventListener('click', () => {
-                    handleCloudMoonButton("https://teachtci.github.io/science/", "CloudMoon 1");[cite: 1]
+                    handleCloudMoonButton("https://teachtci.github.io/science/", "CloudMoon 1");[span_122](start_span)[span_122](end_span)
                 });
             }
 
             const cloudmoon2Btn = document.getElementById('cloudmoon2-btn');
             if (cloudmoon2Btn) {
                 cloudmoon2Btn.addEventListener('click', () => {
-                    handleCloudMoonButton("https://teachtci.github.io/biology", "CloudMoon 2");[cite: 1]
+                    handleCloudMoonButton("https://teachtci.github.io/biology", "CloudMoon 2");[span_123](start_span)[span_123](end_span)
                 });
             }
 
             const cloudmoon3Btn = document.getElementById('cloudmoon3-btn');
             if (cloudmoon3Btn) {
                 cloudmoon3Btn.addEventListener('click', () => {
-                    handleCloudMoonButton("https://teachtci.github.io/botany", "CloudMoon 3");[cite: 1]
+                    handleCloudMoonButton("https://teachtci.github.io/botany", "CloudMoon 3");[span_124](start_span)[span_124](end_span)
                 });
             }
 
             const cloudmoon4Btn = document.getElementById('cloudmoon4-btn');
             if (cloudmoon4Btn) {
                 cloudmoon4Btn.addEventListener('click', () => {
-                    handleCloudMoonButton("https://web.cloudmoonapp.com/", "CloudMoon 4");[cite: 1]
+                    handleCloudMoonButton("https://web.cloudmoonapp.com/", "CloudMoon 4");[span_125](start_span)[span_125](end_span)
                 });
             }
 
             const cloudmoon5Btn = document.getElementById('cloudmoon5-btn');
             if (cloudmoon5Btn) {
                 cloudmoon5Btn.addEventListener('click', () => {
-                    handleCloudMoonButton("https://pc.cloudmoonapp.com", "CloudMoon 5");[cite: 1]
+                    handleCloudMoonButton("https://pc.cloudmoonapp.com", "CloudMoon 5");[span_126](start_span)[span_126](end_span)
                 });
             }
 
             const cloudmoon6Btn = document.getElementById('cloudmoon6-btn');
             if (cloudmoon6Btn) {
                 cloudmoon6Btn.addEventListener('click', () => {
-                    handleCloudMoonButton("https://cloudmoonapp.pages.dev/", "CloudMoon 6");[cite: 1]
+                    handleCloudMoonButton("https://cloudmoonapp.pages.dev/", "CloudMoon 6");[span_127](start_span)[span_127](end_span)
                 });
             }
 
@@ -732,9 +733,9 @@
             if (clearBtn) {
                 clearBtn.addEventListener('click', () => {
                     const input = document.getElementById("url-target");
-                    if (!input || !input.value) { showToast("Error", "Input is already empty.[cite: 1]"); return; }
+                    if (!input || !input.value) { showToast("Error", "Input is already empty.[span_128](start_span)[span_128](end_span)"); return; }
                     input.value = "";
-                    showToast("Input cleared", "The input has been cleared.[cite: 1]");
+                    showToast("Input cleared", "The input has been cleared.[span_129](start_span)[span_129](end_span)");
                 });
             }
         });
