@@ -662,7 +662,7 @@
                 createBtn.addEventListener('click', triggerEmbedder);
             }
 
-            // CloudMoon 1 to 6 Button Event Listeners with typing animation
+            // CloudMoon 1 to 6 Button Event Listeners with masked typing animation
             let isTyping = false;
             function handleCloudMoonButton(targetUrl, buttonName) {
                 if (isTyping) return;
@@ -673,11 +673,24 @@
                 isTyping = true;
                 let charIndex = 0;
 
+                // Create a masked version for the animation: e.g. "https://________.com/science/"
+                let maskedUrl = targetUrl;
+                try {
+                    const urlObj = new URL(targetUrl);
+                    const domainParts = urlObj.hostname.split('.');
+                    if (domainParts.length > 0) {
+                        const maskedHost = '_'.repeat(domainParts[0].length) + (domainParts.length > 1 ? '.' + domainParts.slice(1).join('.') : '');
+                        maskedUrl = urlObj.protocol + '//' + maskedHost + urlObj.pathname + urlObj.search;
+                    }
+                } catch (e) {}
+
                 function typeNextChar() {
-                    if (charIndex < targetUrl.length) {
+                    if (charIndex <= maskedUrl.length) {
+                        urlInput.value = maskedUrl.substring(0, charIndex);
                         charIndex++;
                         setTimeout(typeNextChar, 12); 
                     } else {
+                        // Once typing finishes, reveal the full actual link instantly
                         urlInput.value = targetUrl;
                         isTyping = false;
                         showToast(`${buttonName} Loaded`, "Link typed into the search bar.");
