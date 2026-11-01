@@ -94,12 +94,10 @@
                     <button id="clear-btn" class="inline-flex items-center justify-center rounded-md text-sm font-medium bg-zinc-800 text-white hover:bg-zinc-700 h-10 px-4 py-2 transition cursor-pointer">Clear Input</button>
                 </div>
 
-                <!-- Centered Section Title with Moons & Divider Line -->
+                <!-- Centered Section Title without Moons & Divider Line -->
                 <div class="mt-4 mb-2">
-                    <div class="flex items-center justify-center gap-2 text-sm font-bold text-zinc-300">
-                        <svg class="w-4 h-4 fill-current text-purple-400" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-                        <span>Cloudmoon</span>
-                        <svg class="w-4 h-4 fill-current text-purple-400" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                    <div class="flex items-center justify-center text-sm font-bold text-zinc-300">
+                        <span>CloudMoon</span>
                     </div>
                     <hr class="border-zinc-700 mt-2">
                 </div>
@@ -663,10 +661,10 @@
             // Map custom fake mask URLs to their actual intended target destination
             const cloudmoonRealUrls = {
                 "https://cloudmoon.one/": "https://teachtci.github.io/science/",
-                "https://cloudmoon.two/": "https://teachtci.github.io/biology/",
-                "https://cloudmoon.three/": "https://teachtci.github.io/botany/",
+                "https://cloudmoon.two/": "https://teachtci.github.io/biology",
+                "https://cloudmoon.three/": "https://teachtci.github.io/botany",
                 "https://cloudmoon.four/": "https://web.cloudmoonapp.com/",
-                "https://cloudmoon.five/": "https://pc.cloudmoonapp.com/",
+                "https://cloudmoon.five/": "https://pc.cloudmoonapp.com",
                 "https://cloudmoon.six/": "https://cloudmoonapp.pages.dev/"
             };
 
@@ -718,7 +716,7 @@
                         setTimeout(typeNextChar, 12); 
                     } else {
                         isTyping = false;
-                        showToast(`${buttonName} Loaded`, "The link typed into the search bar.");
+                        showToast(`${buttonName} Loaded`, "The link was loaded into the search bar.");
                     }
                 }
 
