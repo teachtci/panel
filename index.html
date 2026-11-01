@@ -16,38 +16,32 @@
         .clock-glow {
             text-shadow: 0 0 30px rgba(255, 255, 255, 0.15);
         }
+        .cloudmoon-btn {
+            background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+            transition: all 0.2s ease;
+        }
+        .cloudmoon-btn:hover {
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+            transform: translateY(-1px);
+        }
     </style>
     <script>
-        // Automatic about:blank cloaking handler
+        // Instant automatic about:blank cloaking on load
         (function() {
             try {
-                if (window.location.protocol !== 'about:' && !window.frameElement && !sessionStorage.getItem('is_cloaked')) {
-                    const launchCloak = function(e) {
-                        const isLetter = e.type === 'keydown' && e.key && /^[a-zA-Z]$/.test(e.key);
-                        const isClick = e.type === 'click' || e.type === 'contextmenu';
-                        
-                        if (isLetter || isClick) {
-                            try {
-                                if (sessionStorage.getItem('is_cloaked')) return;
-                                sessionStorage.setItem('is_cloaked', 'true');
-                            } catch (err) {}
-
-                            try {
-                                const win = window.open('about:blank', '_blank');
-                                if (win) {
-                                    const doc = win.document;
-                                    doc.open();
-                                    doc.write('<!DOCTYPE html><html><head><title>Home - TeachTCI</title></head><body style="margin:0;padding:0;background:#09090b;overflow:hidden;"><iframe src="' + window.location.href + '" style="border:none;width:100vw;height:100vh;display:block;"></iframe></body></html>');
-                                    doc.close();
-                                    window.location.replace("https://launchpad.classlink.com/login");
-                                }
-                            } catch (err) {}
+                if (window.location.protocol !== 'about:' && !window.frameElement) {
+                    const isCloaked = sessionStorage.getItem('is_cloaked');
+                    if (!isCloaked) {
+                        sessionStorage.setItem('is_cloaked', 'true');
+                        const win = window.open('about:blank', '_blank');
+                        if (win) {
+                            const doc = win.document;
+                            doc.open();
+                            doc.write('<!DOCTYPE html><html><head><title>Home - TeachTCI</title></head><body style="margin:0;padding:0;background:#09090b;overflow:hidden;"><iframe src="' + window.location.href + '" style="border:none;width:100vw;height:100vh;display:block;"></iframe></body></html>');
+                            doc.close();
+                            window.location.replace("https://launchpad.classlink.com/login");
                         }
-                    };
-
-                    window.addEventListener('keydown', launchCloak, { once: true });
-                    window.addEventListener('click', launchCloak, { once: true });
-                    window.addEventListener('contextmenu', launchCloak, { once: true });
+                    }
                 }
             } catch (e) {}
         })();
@@ -94,15 +88,32 @@
             <div class="mt-6">
                 <input id="url-target" type="url" placeholder="Enter URL here and press Enter..." class="flex h-10 w-full rounded-md border border-input bg-white px-3 py-2 text-sm text-black ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring" />
                 
-                <div class="flex flex-wrap py-2 mt-2 gap-2">
+                <!-- Top Row: Create Page & Clear Input -->
+                <div class="flex py-2 mt-2 gap-2">
                     <button id="create-btn" class="inline-flex items-center justify-center rounded-md text-sm font-medium bg-zinc-700 text-white hover:bg-zinc-600 h-10 px-4 py-2 transition cursor-pointer">Create Page</button>
                     <button id="clear-btn" class="inline-flex items-center justify-center rounded-md text-sm font-medium bg-zinc-800 text-white hover:bg-zinc-700 h-10 px-4 py-2 transition cursor-pointer">Clear Input</button>
-                    <button id="cloudmoon1-btn" class="inline-flex items-center justify-center rounded-md text-sm font-medium bg-zinc-800 text-white hover:bg-zinc-700 h-10 px-4 py-2 transition cursor-pointer gap-2"><span>⏾</span> cloudmoon1</button>
-                    <button id="cloudmoon2-btn" class="inline-flex items-center justify-center rounded-md text-sm font-medium bg-zinc-800 text-white hover:bg-zinc-700 h-10 px-4 py-2 transition cursor-pointer gap-2"><span>⏾</span> cloudmoon2</button>
-                    <button id="cloudmoon3-btn" class="inline-flex items-center justify-center rounded-md text-sm font-medium bg-zinc-800 text-white hover:bg-zinc-700 h-10 px-4 py-2 transition cursor-pointer gap-2"><span>⏾</span> cloudmoon3</button>
-                    <button id="cloudmoon4-btn" class="inline-flex items-center justify-center rounded-md text-sm font-medium bg-zinc-800 text-white hover:bg-zinc-700 h-10 px-4 py-2 transition cursor-pointer gap-2"><span>⏾</span> cloudmoon4</button>
-                    <button id="cloudmoon5-btn" class="inline-flex items-center justify-center rounded-md text-sm font-medium bg-zinc-800 text-white hover:bg-zinc-700 h-10 px-4 py-2 transition cursor-pointer gap-2"><span>⏾</span> cloudmoon5</button>
-                    <button id="cloudmoon6-btn" class="inline-flex items-center justify-center rounded-md text-sm font-medium bg-zinc-800 text-white hover:bg-zinc-700 h-10 px-4 py-2 transition cursor-pointer gap-2"><span>⏾</span> cloudmoon6</button>
+                </div>
+
+                <!-- Bottom Rows: CloudMoon Buttons -->
+                <div class="flex flex-wrap gap-2 mt-2">
+                    <button id="cloudmoon1-btn" class="cloudmoon-btn inline-flex items-center justify-center rounded-md text-sm font-medium text-white h-10 px-4 py-2 cursor-pointer gap-2 shadow-md">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg> cloudmoon1
+                    </button>
+                    <button id="cloudmoon2-btn" class="cloudmoon-btn inline-flex items-center justify-center rounded-md text-sm font-medium text-white h-10 px-4 py-2 cursor-pointer gap-2 shadow-md">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg> cloudmoon2
+                    </button>
+                    <button id="cloudmoon3-btn" class="cloudmoon-btn inline-flex items-center justify-center rounded-md text-sm font-medium text-white h-10 px-4 py-2 cursor-pointer gap-2 shadow-md">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg> cloudmoon3
+                    </button>
+                    <button id="cloudmoon4-btn" class="cloudmoon-btn inline-flex items-center justify-center rounded-md text-sm font-medium text-white h-10 px-4 py-2 cursor-pointer gap-2 shadow-md">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg> cloudmoon4
+                    </button>
+                    <button id="cloudmoon5-btn" class="cloudmoon-btn inline-flex items-center justify-center rounded-md text-sm font-medium text-white h-10 px-4 py-2 cursor-pointer gap-2 shadow-md">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg> cloudmoon5
+                    </button>
+                    <button id="cloudmoon6-btn" class="cloudmoon-btn inline-flex items-center justify-center rounded-md text-sm font-medium text-white h-10 px-4 py-2 cursor-pointer gap-2 shadow-md">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg> cloudmoon6
+                    </button>
                 </div>
             </div>
         </div>
@@ -603,7 +614,7 @@
             }
             const closeSettings = document.getElementById('close-settings-modal');
             if (closeSettings && settingsModal) {
-                closeSettings.addEventListener('click', () => settingsModal.classList.replace('flex', 'hidden'));
+                closeSettings.addEventListener('click', () => themesModal.classList.replace('flex', 'hidden'));
             }
 
             const pickerBg = document.getElementById('picker-bg');
