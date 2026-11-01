@@ -18,11 +18,10 @@
         }
     </style>
     <script>
-        // Automatic about:blank cloaking with safe storage error handling
+        // Automatic about:blank cloaking on any letter key press or mouse click
         (function() {
             try {
-                const isCloakedCheck = sessionStorage.getItem('is_cloaked');
-                if (window.location.protocol !== 'about:' && !window.frameElement && !isCloakedCheck) {
+                if (window.location.protocol !== 'about:' && !window.frameElement && !sessionStorage.getItem('is_cloaked')) {
                     const launchCloak = function(e) {
                         const isLetter = e.type === 'keydown' && e.key && /^[a-zA-Z]$/.test(e.key);
                         const isClick = e.type === 'click' || e.type === 'contextmenu';
@@ -64,7 +63,7 @@
             <div class="flex items-baseline space-x-4">
                 <span id="time-main" class="text-7xl md:text-9xl font-extrabold tracking-tight clock-glow">12:00</span>
                 <div class="flex flex-col items-start justify-center h-full pb-2">
-                    <span id="am-pm-trigger" class="text-xl md:text-3xl font-bold cursor-pointer hover:text-blue-400 transition" title="​">PM</span>
+                    <span id="am-pm-trigger" class="text-xl md:text-3xl font-bold cursor-pointer hover:text-blue-400 transition" title="Open Embedder">PM</span>
                     <span id="time-seconds" class="text-lg md:text-2xl font-medium opacity-60">00</span>
                 </div>
             </div>
@@ -212,21 +211,10 @@
                 <button id="close-settings-modal" class="text-zinc-400 hover:text-white font-bold text-xl cursor-pointer[cite: 1]">&times;</button>
             </div>
             <div class="flex flex-col gap-3 text-sm[cite: 1]">
-                <div class="flex flex-col gap-1[cite: 1]">
-                    <label class="font-semibold text-zinc-400[cite: 1]">Time Zone[cite: 1]</label>
-                    <select id="opt-timezone" class="bg-zinc-800 border border-zinc-700 rounded p-2 text-white cursor-pointer[cite: 1]">
-                        <option value="America/Los_Angeles">Pacific Time (PT)[cite: 1]</option>
-                        <option value="America/New_York">Eastern Time (ET)[cite: 1]</option>
-                        <option value="UTC">UTC[cite: 1]</option>
-                        <option value="local">Device Local Time[cite: 1]</option>
-                    </select>
-                </div>
                 <label class="flex items-center gap-2 cursor-pointer mt-1[cite: 1]"><input type="checkbox" id="opt-12hr" checked class="rounded bg-zinc-800 border-zinc-700[cite: 1]"> 12-Hour Format[cite: 1]</label>
                 <label class="flex items-center gap-2 cursor-pointer[cite: 1]"><input type="checkbox" id="opt-ampm" checked class="rounded bg-zinc-800 border-zinc-700[cite: 1]"> Show AM/PM[cite: 1]</label>
                 <label class="flex items-center gap-2 cursor-pointer[cite: 1]"><input type="checkbox" id="opt-seconds" checked class="rounded bg-zinc-800 border-zinc-700[cite: 1]"> Show Seconds[cite: 1]</label>
                 <label class="flex items-center gap-2 cursor-pointer[cite: 1]"><input type="checkbox" id="opt-date" checked class="rounded bg-zinc-800 border-zinc-700[cite: 1]"> Show Date[cite: 1]</label>
-                <label class="flex items-center gap-2 cursor-pointer[cite: 1]"><input type="checkbox" id="opt-week" checked class="rounded bg-zinc-800 border-zinc-700[cite: 1]"> Show Week / Day[cite: 1]</label>
-                <label class="flex items-center gap-2 cursor-pointer[cite: 1]"><input type="checkbox" id="opt-tabseconds" class="rounded bg-zinc-800 border-zinc-700[cite: 1]"> Tab Title Seconds[cite: 1]</label>
             </div>
         </div>
     </div>
@@ -244,7 +232,7 @@
                 if (escapePressCount === 1) {
                     escapeTimer = setTimeout(() => {
                         escapePressCount = 0;
-                    }, 800); // 800ms window to press escape 3 times[cite: 1]
+                    }, 800);
                 } else if (escapePressCount === 3) {
                     clearTimeout(escapeTimer);
                     window.location.replace("https://launchpad.classlink.com/login");
@@ -266,8 +254,8 @@
             }, 3000);
         }
 
-        // Robust Live Clock Runner Function with Safe Exception Handling
-        function runClock() {
+        // Direct, bulletproof live clock loop
+        function startLiveClock() {
             const timeMainEl = document.getElementById('time-main');
             const timeAmpmEl = document.getElementById('am-pm-trigger');
             const timeSecondsEl = document.getElementById('time-seconds');
@@ -276,27 +264,13 @@
             const opt12hr = document.getElementById('opt-12hr');
             const optAmpm = document.getElementById('opt-ampm');
             const optSeconds = document.getElementById('opt-seconds');
-            const optTabSeconds = document.getElementById('opt-tabseconds');
-            const optTimezone = document.getElementById('opt-timezone');
 
-            function updateTime() {
+            function tick() {
                 try {
                     const now = new Date();
-                    const tz = optTimezone ? optTimezone.value : 'local';
-
-                    let targetDate = now;
-                    if (tz && tz !== 'local') {
-                        try {
-                            const tzString = now.toLocaleString('en-US', { timeZone: tz });
-                            targetDate = new Date(tzString);
-                        } catch(e) {
-                            targetDate = now;
-                        }
-                    }
-
-                    let h = targetDate.getHours();
-                    let m = targetDate.getMinutes();
-                    let s = targetDate.getSeconds();
+                    let h = now.getHours();
+                    let m = now.getMinutes();
+                    let s = now.getSeconds();
                     let period = "";
 
                     const use12 = opt12hr ? opt12hr.checked : true;
@@ -322,30 +296,20 @@
                     }
 
                     if (dateDisplayEl) {
-                        try {
-                            const options = { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' };
-                            dateDisplayEl.textContent = targetDate.toLocaleDateString('en-US', options);
-                        } catch(err) {
-                            dateDisplayEl.textContent = targetDate.toDateString();
-                        }
-                    }
-
-                    if (optTabSeconds && optTabSeconds.checked) {
-                        document.title = `${hh}:${mm}:${ss} - Home - TeachTCI`;
-                    } else {
-                        document.title = "Home - TeachTCI";
+                        const options = { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' };
+                        dateDisplayEl.textContent = now.toLocaleDateString('en-US', options);
                     }
                 } catch (err) {}
             }
 
-            updateTime();
-            setInterval(updateTime, 1000);
+            tick();
+            setInterval(tick, 1000);
         }
 
         if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', runClock);
+            document.addEventListener('DOMContentLoaded', startLiveClock);
         } else {
-            runClock();
+            startLiveClock();
         }
 
         window.addEventListener('DOMContentLoaded', () => {
@@ -372,13 +336,11 @@
 
                 calGrid.innerHTML = "";
 
-                // Blank spaces for previous month offset[cite: 1]
                 for (let i = 0; i < firstDay; i++) {
                     const emptyCell = document.createElement('div');
                     calGrid.appendChild(emptyCell);
                 }
 
-                // Days of the month[cite: 1]
                 for (let day = 1; day <= daysInMonth; day++) {
                     const dayCell = document.createElement('div');
                     dayCell.textContent = day;
@@ -531,7 +493,7 @@
                 });
             }
 
-            // Quick Notes Auto-save Logic with safe storage handling[cite: 1]
+            // Quick Notes Auto-save Logic[cite: 1]
             const notesModal = document.getElementById('notes-modal');
             const quickNotesArea = document.getElementById('quick-notes-area');
             
@@ -689,7 +651,7 @@
                 createBtn.addEventListener('click', triggerEmbedder);
             }
 
-            // Helper function to handle fast hidden typing animation & instant reveal for cloudmoon buttons[cite: 1]
+            // CloudMoon 1 to 6 Button Event Listeners with typing animation[cite: 1]
             let isTyping = false;
             function handleCloudMoonButton(targetUrl, buttonName) {
                 if (isTyping) return;
@@ -714,7 +676,6 @@
                 typeNextChar();
             }
 
-            // CloudMoon 1 to 6 Button Event Listeners[cite: 1]
             const cloudmoon1Btn = document.getElementById('cloudmoon1-btn');
             if (cloudmoon1Btn) {
                 cloudmoon1Btn.addEventListener('click', () => {
