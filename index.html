@@ -24,6 +24,14 @@
             background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
             transform: translateY(-1px);
         }
+        .halcyon-btn {
+            background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+            transition: all 0.2s ease;
+        }
+        .halcyon-btn:hover {
+            background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%);
+            transform: translateY(-1px);
+        }
     </style>
     <script>
         // Instant automatic about:blank cloaking on load
@@ -80,12 +88,12 @@
         </div>
 
         <!-- Embedder View (Hidden by default) -->
-        <div id="embedder-view" class="hidden flex-grow p-6 rounded-2xl overflow-auto max-w-2xl mx-auto mt-10 w-full z-10 bg-black/80 backdrop-blur-md border border-white/10 shadow-2xl text-white">
+        <div id="embedder-view" class="hidden flex-grow p-6 rounded-2xl overflow-auto max-w-2xl mx-auto mt-6 w-full z-10 bg-black/80 backdrop-blur-md border border-white/10 shadow-2xl text-white max-h-[85vh]">
             <div class="flex justify-between items-center mb-4">
                 <h1 class="text-3xl font-extrabold tracking-tight">embedder</h1>
                 <button id="back-to-clock" class="text-xs bg-white/20 hover:bg-white/30 px-3 py-1.5 rounded-lg transition font-bold cursor-pointer">Back to Dashboard</button>
             </div>
-            <div class="mt-6">
+            <div class="mt-4">
                 <input id="url-target" type="url" placeholder="Enter URL here and press Enter..." class="flex h-10 w-full rounded-md border border-input bg-white px-3 py-2 text-sm text-black ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring" />
                 
                 <!-- Top Row: Create Page & Clear Input -->
@@ -95,7 +103,7 @@
                 </div>
 
                 <!-- Framed Purple Outline Container for CloudMoon Section -->
-                <div class="mt-4 p-4 rounded-xl border border-purple-500/40 bg-purple-950/10 shadow-[0_0_15px_rgba(124,58,237,0.15)]">
+                <div class="mt-4 p-4 rounded-xl border border-purple-500/40 bg-purple-950/15 shadow-[0_0_15px_rgba(124,58,237,0.15)]">
                     <!-- Centered Section Title -->
                     <div class="mb-2">
                         <div class="flex items-center justify-center text-sm font-bold text-zinc-300">
@@ -123,6 +131,53 @@
                         </button>
                         <button id="cloudmoon6-btn" class="cloudmoon-btn inline-flex items-center justify-center rounded-md text-sm font-medium text-white h-10 px-4 py-2 cursor-pointer gap-2 shadow-md">
                             <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg> cloudmoon6
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Framed Blue Outline Container for Halcyon Section -->
+                <div class="mt-4 p-4 rounded-xl border border-sky-500/40 bg-sky-950/15 shadow-[0_0_15px_rgba(2,132,199,0.15)]">
+                    <!-- Centered Section Title -->
+                    <div class="mb-2">
+                        <div class="flex items-center justify-center text-sm font-bold text-zinc-300">
+                            <span>Halcyon</span>
+                        </div>
+                        <hr class="border-sky-500/30 mt-2">
+                    </div>
+
+                    <!-- Centered Halcyon Buttons with Sun Icons -->
+                    <div class="flex flex-wrap justify-center gap-2 mt-2">
+                        <button id="halcyon1-btn" class="halcyon-btn inline-flex items-center justify-center rounded-md text-sm font-medium text-white h-10 px-4 py-2 cursor-pointer gap-2 shadow-md">
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-12.37c-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.38.39-1.02 0-1.41zM7.05 18.36l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.39.39-1.03 0-1.41s-1.02-.39-1.41 0z"></path></svg>
+                            halcyon1
+                        </button>
+                        <button id="halcyon2-btn" class="halcyon-btn inline-flex items-center justify-center rounded-md text-sm font-medium text-white h-10 px-4 py-2 cursor-pointer gap-2 shadow-md">
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-12.37c-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.38.39-1.02 0-1.41zM7.05 18.36l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.39.39-1.03 0-1.41s-1.02-.39-1.41 0z"></path></svg>
+                            halcyon2
+                        </button>
+                        <button id="halcyon3-btn" class="halcyon-btn inline-flex items-center justify-center rounded-md text-sm font-medium text-white h-10 px-4 py-2 cursor-pointer gap-2 shadow-md">
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-12.37c-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.38.39-1.02 0-1.41zM7.05 18.36l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.39.39-1.03 0-1.41s-1.02-.39-1.41 0z"></path></svg>
+                            halcyon3
+                        </button>
+                        <button id="halcyon4-btn" class="halcyon-btn inline-flex items-center justify-center rounded-md text-sm font-medium text-white h-10 px-4 py-2 cursor-pointer gap-2 shadow-md">
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-12.37c-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.38.39-1.02 0-1.41zM7.05 18.36l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.39.39-1.03 0-1.41s-1.02-.39-1.41 0z"></path></svg>
+                            halcyon4
+                        </button>
+                        <button id="halcyon5-btn" class="halcyon-btn inline-flex items-center justify-center rounded-md text-sm font-medium text-white h-10 px-4 py-2 cursor-pointer gap-2 shadow-md">
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-12.37c-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.38.39-1.02 0-1.41zM7.05 18.36l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.39.39-1.03 0-1.41s-1.02-.39-1.41 0z"></path></svg>
+                            halcyon5
+                        </button>
+                        <button id="halcyon6-btn" class="halcyon-btn inline-flex items-center justify-center rounded-md text-sm font-medium text-white h-10 px-4 py-2 cursor-pointer gap-2 shadow-md">
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-12.37c-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.38.39-1.02 0-1.41zM7.05 18.36l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.39.39-1.03 0-1.41s-1.02-.39-1.41 0z"></path></svg>
+                            halcyon6
+                        </button>
+                        <button id="halcyon7-btn" class="halcyon-btn inline-flex items-center justify-center rounded-md text-sm font-medium text-white h-10 px-4 py-2 cursor-pointer gap-2 shadow-md">
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-12.37c-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.38.39-1.02 0-1.41zM7.05 18.36l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.39.39-1.03 0-1.41s-1.02-.39-1.41 0z"></path></svg>
+                            halcyon7
+                        </button>
+                        <button id="halcyon8-btn" class="halcyon-btn inline-flex items-center justify-center rounded-md text-sm font-medium text-white h-10 px-4 py-2 cursor-pointer gap-2 shadow-md">
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-12.37c-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.38.39-1.02 0-1.41zM7.05 18.36l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.39.39-1.03 0-1.41s-1.02-.39-1.41 0z"></path></svg>
+                            halcyon8
                         </button>
                     </div>
                 </div>
@@ -662,13 +717,24 @@
             });
 
             // Map custom fake mask URLs to their actual intended target destination
-            const cloudmoonRealUrls = {
+            const realUrls = {
+                // CloudMoon URLs
                 "https://cloudmoon.one/": "https://teachtci.github.io/science/",
                 "https://cloudmoon.two/": "https://teachtci.github.io/biology",
                 "https://cloudmoon.three/": "https://teachtci.github.io/botany",
                 "https://cloudmoon.four/": "https://web.cloudmoonapp.com/",
                 "https://cloudmoon.five/": "https://pc.cloudmoonapp.com",
-                "https://cloudmoon.six/": "https://cloudmoonapp.pages.dev/"
+                "https://cloudmoon.six/": "https://cloudmoonapp.pages.dev/",
+
+                // Halcyon URLs
+                "https://halcyon.one": "https://student.crabdance.com",
+                "https://halcyon.two": "https://studyhall.ignorelist.com/",
+                "https://halcyon.three": "https://coursework.jumpingcrab.com/",
+                "https://halcyon.four": "https://learnspace.twilightparadox.com/",
+                "https://halcyon.five": "https://studyspace-cdn.surge.sh/",
+                "https://halcyon.six": "https://studybuddy-cdn.clarity-hq.workers.dev/",
+                "https://halcyon.seven": "https://portal.infocommthailand.com/",
+                "https://halcyon.eight": "https://study.grupompr.com/"
             };
 
             function triggerEmbedder() {
@@ -678,7 +744,7 @@
                 let inputVal = urlInput.value.trim();
                 if (!inputVal) { showToast("Error", "URL cannot be empty."); return; }
                 
-                let targetUrl = cloudmoonRealUrls[inputVal] || inputVal;
+                let targetUrl = realUrls[inputVal] || realUrls[inputVal + "/"] || inputVal;
                 
                 showToast("Page opened!", "The page has been opened in a new about:blank tab.");
                 if (!targetUrl.startsWith("http://") && !targetUrl.startsWith("https://")) targetUrl = "https://" + targetUrl;
@@ -701,9 +767,9 @@
                 createBtn.addEventListener('click', triggerEmbedder);
             }
 
-            // CloudMoon Button Event Listeners with custom typed animation
+            // Button Event Listeners with custom typed animation
             let isTyping = false;
-            function handleCloudMoonButton(fakeUrl, buttonName) {
+            function handleTypedButton(fakeUrl, buttonName) {
                 if (isTyping) return;
                 const urlInput = document.getElementById("url-target");
                 if (!urlInput) return;
@@ -726,12 +792,23 @@
                 typeNextChar();
             }
 
-            document.getElementById('cloudmoon1-btn').addEventListener('click', () => handleCloudMoonButton("https://cloudmoon.one/", "CloudMoon 1"));
-            document.getElementById('cloudmoon2-btn').addEventListener('click', () => handleCloudMoonButton("https://cloudmoon.two/", "CloudMoon 2"));
-            document.getElementById('cloudmoon3-btn').addEventListener('click', () => handleCloudMoonButton("https://cloudmoon.three/", "CloudMoon 3"));
-            document.getElementById('cloudmoon4-btn').addEventListener('click', () => handleCloudMoonButton("https://cloudmoon.four/", "CloudMoon 4"));
-            document.getElementById('cloudmoon5-btn').addEventListener('click', () => handleCloudMoonButton("https://cloudmoon.five/", "CloudMoon 5"));
-            document.getElementById('cloudmoon6-btn').addEventListener('click', () => handleCloudMoonButton("https://cloudmoon.six/", "CloudMoon 6"));
+            // CloudMoon bindings
+            document.getElementById('cloudmoon1-btn').addEventListener('click', () => handleTypedButton("https://cloudmoon.one/", "CloudMoon 1"));
+            document.getElementById('cloudmoon2-btn').addEventListener('click', () => handleTypedButton("https://cloudmoon.two/", "CloudMoon 2"));
+            document.getElementById('cloudmoon3-btn').addEventListener('click', () => handleTypedButton("https://cloudmoon.three/", "CloudMoon 3"));
+            document.getElementById('cloudmoon4-btn').addEventListener('click', () => handleTypedButton("https://cloudmoon.four/", "CloudMoon 4"));
+            document.getElementById('cloudmoon5-btn').addEventListener('click', () => handleTypedButton("https://cloudmoon.five/", "CloudMoon 5"));
+            document.getElementById('cloudmoon6-btn').addEventListener('click', () => handleTypedButton("https://cloudmoon.six/", "CloudMoon 6"));
+
+            // Halcyon bindings
+            document.getElementById('halcyon1-btn').addEventListener('click', () => handleTypedButton("https://halcyon.one", "Halcyon 1"));
+            document.getElementById('halcyon2-btn').addEventListener('click', () => handleTypedButton("https://halcyon.two", "Halcyon 2"));
+            document.getElementById('halcyon3-btn').addEventListener('click', () => handleTypedButton("https://halcyon.three", "Halcyon 3"));
+            document.getElementById('halcyon4-btn').addEventListener('click', () => handleTypedButton("https://halcyon.four", "Halcyon 4"));
+            document.getElementById('halcyon5-btn').addEventListener('click', () => handleTypedButton("https://halcyon.five", "Halcyon 5"));
+            document.getElementById('halcyon6-btn').addEventListener('click', () => handleTypedButton("https://halcyon.six", "Halcyon 6"));
+            document.getElementById('halcyon7-btn').addEventListener('click', () => handleTypedButton("https://halcyon.seven", "Halcyon 7"));
+            document.getElementById('halcyon8-btn').addEventListener('click', () => handleTypedButton("https://halcyon.eight", "Halcyon 8"));
 
             const urlTarget = document.getElementById('url-target');
             if (urlTarget) {
